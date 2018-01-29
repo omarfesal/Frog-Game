@@ -40,11 +40,45 @@ var Player = function(sprite, xCooredinate , yCooredinate) {
 // inheret all methods of enemy to player
 Player.prototype = Object.create(Enemy.prototype);
 
+Player.prototype.handleInput = function(key){
+    switch(key){
+        case 'left':
+            if(this.x == 0 ){return}
+            this.x -= 100;
+            console.log(this.x);
+            break;
+        case 'right':
+            if(this.x == 400 ){return}
+            this.x += 100;
+            console.log(this.x);
+            break;
+
+        case 'up':
+            if(this.y == -25 ){return}
+            this.y -= 85;
+            console.log(this.y);
+            break;
+            
+        case 'down':
+            if(this.y == 400 ){return}
+            this.y += 85;
+            console.log(this.y);
+            break;
+        default:
+            break;
+    }
+    
+}
+
+
 
 let allEnemies = [new Enemy(0,60),
                   new Enemy(0,143),
                   new Enemy(0,225)];
 let player = new Player("images/char-boy.png",200,400);
+
+
+
 
 
 // This listens for key presses and sends the keys to your
