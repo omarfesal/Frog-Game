@@ -41,6 +41,11 @@ var Player = function(sprite, xCooredinate , yCooredinate) {
 Player.prototype = Object.create(Enemy.prototype);
 
 
+let allEnemies = [new Enemy(0,60),
+                  new Enemy(0,143),
+                  new Enemy(0,225)];
+let player = new Player("images/char-boy.png",200,400);
+
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
