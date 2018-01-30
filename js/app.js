@@ -1,8 +1,3 @@
-var xe1 = 60,
-    xe2 = 143,
-    xe3 = 225;
-
-
 // Enemies our player must avoid
 var Enemy = function(xCooredinate , yCooredinate) {
     // Variables applied to each of our instances go here, we've provided one for you to get started
@@ -42,20 +37,20 @@ var Player = function(sprite, xCooredinate , yCooredinate) {
 Player.prototype.update = function() {
     allEnemies.map(
         enemie=>{
-                if ( Math.abs(player.x -  enemie.x) < 100 && player.y === enemie.y) {
-                    player.x= 200;
-                    player.y = 400;
+                if ( Math.abs(this.x -  enemie.x) < 100 && this.y === enemie.y) {
+                    this.x= 200;
+                    this.y = 400;
                 };
         }
     );
-    if(player.y === -25){
+    if(this.y === -25){
         setTimeout(function(){
-            player.y = 400;
-            player.x = 200;
+            this.y = 400;
+            this.x = 200;
             $("#congrats").css({"display":"block"});
             $("canvas").css("display","none");
 
-        },100);
+        }.bind(this),100);
     }
 
 };
